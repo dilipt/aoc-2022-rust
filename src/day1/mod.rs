@@ -4,35 +4,28 @@ pub mod calories {
   pub fn find_highest_calorie() -> i32 {
     let input = read_to_string("./src/day1/input.txt").unwrap();
     let calories_per_elf = input.split("\n\n");
-    let mut highest_calorie = 0;
 
-    for calories in calories_per_elf {
-      let total_calories = calories
-        .split("\n")
-        .map(|calorie| { calorie.parse::<i32>().unwrap() })
-        .sum();
-      
-      if total_calories > highest_calorie {
-        highest_calorie = total_calories;
-      }
-    }
-
-    highest_calorie
+    calories_per_elf
+      .map(|calories| {
+        calories
+          .split("\n")
+          .map(|calorie| { calorie.parse::<i32>().unwrap() })
+          .sum::<i32>()
+      })
+      .max()
+        .unwrap()
   }
 
   pub fn find_top_three_calories() -> i32 {
     let input = read_to_string("./src/day1/input.txt").unwrap();
     let calories_per_elf = input.split("\n\n");
-    let mut calorie_counts = Vec::new();
 
-    for calories in calories_per_elf {
-      let total_calories = calories
+    let mut calorie_counts: Vec<i32> = calories_per_elf.map(|calories| {
+      calories
         .split("\n")
         .map(|calorie| { calorie.parse::<i32>().unwrap() })
-        .sum();
-
-      calorie_counts.push(total_calories);
-    }
+        .sum::<i32>()
+    }).collect();
     
     calorie_counts.sort();
     calorie_counts.reverse();
