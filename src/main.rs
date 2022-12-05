@@ -1,9 +1,6 @@
 mod day1;
-
-use day1::calories::find_highest_calorie;
-use day1::calories::find_top_three_calories;
+mod day2;
 
 fn main() {
-    println!("{}", find_highest_calorie());
-    println!("{}", find_top_three_calories());
+    println!("Run the tests in each module.");
 }
