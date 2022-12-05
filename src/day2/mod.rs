@@ -54,7 +54,7 @@ pub fn elf_strategy_total() -> i32 {
       "X" => game_guide.get(individual_hands[0]).unwrap().to_lose_score,
       "Y" => game_guide.get(individual_hands[0]).unwrap().score + 3,
       "Z" => game_guide.get(individual_hands[0]).unwrap().to_win_score + 6,
-        _ => 0,
+        _ => panic!("uh oh, shouldn't be here"),
     }
   }).sum()
 }
