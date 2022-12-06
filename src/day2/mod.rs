@@ -63,6 +63,7 @@ pub fn elf_strategy_total() -> i32 {
 pub mod tests {
   use crate::day2::my_strategy_total;
   use crate::day2::elf_strategy_total;
+
   #[test]
   fn test_day2_part1() {
     assert_eq!(elf_strategy_total(), 13193);
